@@ -1,0 +1,66 @@
+:root{
+  --paper:#f7f6f2; --card:#fff; --ink:#1d2a26; --muted:#66726d; --line:#dedbd2;
+  --green:#1f5c4d; --new:#b8841a; --contacted:#2f6f9f; --converted:#2a8a5a; --red:#b3392f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 'IBM Plex Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;margin:0}
+h3{font-size:14px;margin:22px 0 8px}
+a{color:var(--green)}
+.muted{color:var(--muted)} .small{font-size:13px} .error{color:var(--red);margin:8px 0}
+
+button{font:inherit;cursor:pointer;border-radius:6px;padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+button:disabled{opacity:.5;cursor:not-allowed}
+button.primary{background:var(--green);color:#fff;border-color:var(--green)}
+button.ghost{background:transparent}
+button.danger{margin-top:28px;color:var(--red);border-color:var(--red);background:transparent}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+input,textarea{width:100%;font:inherit;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+label{display:block;font-size:14px;margin-top:12px} label input,label textarea{margin-top:4px}
+
+.login{min-height:100vh;display:grid;place-items:center;padding:16px}
+.login form{background:var(--card);padding:32px;border-radius:10px;width:min(380px,100%);border:1px solid var(--line)}
+.login h1{font-size:32px;color:var(--green)} .login button{width:100%;margin-top:18px}
+
+.shell{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+header h1{font-size:28px;color:var(--green)} header button{margin-left:8px}
+
+.summary{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.pipeline{display:flex;height:10px;border-radius:5px;overflow:hidden;gap:2px;background:var(--line)}
+.seg.new{background:var(--new)} .seg.contacted{background:var(--contacted)} .seg.converted{background:var(--converted)}
+.summary dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:16px 0 0}
+.summary dt{font-size:13px;color:var(--muted)} .summary dd{margin:0;font:700 26px 'Bricolage Grotesque',sans-serif}
+.summary .alert dd{color:var(--red)}
+
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 12px}
+.toolbar input{flex:1;min-width:220px}
+.tabs{display:flex} .tabs button{border-radius:0;text-transform:capitalize;margin-left:-1px}
+.tabs button:first-child{border-radius:6px 0 0 6px;margin-left:0} .tabs button:last-child{border-radius:0 6px 6px 0}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.table-wrap{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
+th{font-size:13px;color:var(--muted);font-weight:500}
+tbody tr{cursor:pointer} tbody tr:hover,tr.sel{background:#f1efe8}
+tbody tr:last-child td{border-bottom:0}
+td.overdue{color:var(--red);font-weight:600} td.empty{text-align:center;color:var(--muted);padding:36px;cursor:default}
+.badge{padding:2px 10px;border-radius:99px;font-size:13px;color:#fff;text-transform:capitalize}
+.badge.new{background:var(--new)} .badge.contacted{background:var(--contacted)} .badge.converted{background:var(--converted)}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--card);border-left:1px solid var(--line);padding:22px;overflow-y:auto;box-shadow:-8px 0 24px #0001;animation:slide .18s ease-out}
+@keyframes slide{from{transform:translateX(24px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.panel{animation:none}}
+.panel-head{display:flex;justify-content:space-between;gap:10px}
+blockquote{margin:12px 0;padding:10px 14px;background:var(--paper);border-left:3px solid var(--line);border-radius:0 6px 6px 0}
+.steps{display:flex;gap:8px} .steps button{flex:1;text-transform:capitalize}
+.steps button.on{color:#fff} .steps .new.on{background:var(--new);border-color:var(--new)}
+.steps .contacted.on{background:var(--contacted);border-color:var(--contacted)} .steps .converted.on{background:var(--converted);border-color:var(--converted)}
+.row{display:flex;gap:8px;align-items:center;justify-content:flex-end} .row input{flex:1}
+form .primary{margin-top:8px}
+.notes{list-style:none;padding:0;margin:14px 0 0} .notes li{padding:10px 0;border-top:1px solid var(--line)} .notes p{margin:0 0 2px;white-space:pre-wrap}
+
+.overlay{position:fixed;inset:0;background:#0006;display:grid;place-items:center;padding:16px;z-index:5}
+.modal{background:var(--card);padding:24px;border-radius:10px;width:min(440px,100%)} .modal .row{margin-top:18px}
